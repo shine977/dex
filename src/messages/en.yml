@@ -1,0 +1,29 @@
+common:
+  language: English
+  connect_wallet: Connect Wallet
+  disconnect: Disconnect
+  copy_address: Copy Address
+  theme:
+    system: Auto
+    light: Light
+    dark: Dark
+
+nav:
+  all_chains: All Chains
+  price: Price
+  change: Change
+  search: Search
+  market: Market
+  favorite: Favorite
+  settings: Settings
+
+chains:
+  solana: Solana
+  ethereum: Ethereum
+  bsc: BSC
+  base: Base
+
+actions:
+  copy_success: Copied
+  connect_success: Connected
+  disconnect_success: Disconnected

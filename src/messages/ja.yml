@@ -1,0 +1,30 @@
+common:
+  language: 日本語
+  connect_wallet: ウォレット接続
+  disconnect: 切断
+  copy_address: アドレスをコピー
+  theme:
+    system: 自動
+    light: 浅色
+    dark: 深色
+
+nav:
+  all_chains: すべてのチェーン
+  price: 価格
+  change: 変動
+  search: 検索
+  market: 市場
+  favorite: お気に入り
+  settings: 設定
+  theme: テーマ
+
+chains:
+  solana: ソラナ
+  ethereum: イーサリアム
+  bsc: バイナンス
+  base: ベース
+
+actions:
+  copy_success: コピーしました
+  connect_success: 接続しました
+  disconnect_success: 切断しました

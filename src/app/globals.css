@@ -3,19 +3,173 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Theme - 基于 Apple Light Mode & Material 3 Light */
+  --color-primary: #0a84ff; /* 主题色 - Apple iOS 蓝色 */
+  --color-primary-hover: #007aff; /* 主题色悬停 */
+  --color-secondary: #8e8e93; /* 次要文本 */
+
+  --color-background: #f5f5f7; /* 页面背景 - Apple 浅灰 */
+  --color-header-background: #ffffff; /* 头部背景 - 纯白 */
+  --color-card-background: #ffffff; /* 卡片背景 */
+
+  --color-text: #1d1d1f; /* 主要文本 - Apple 近黑 */
+  --color-text-secondary: #6e6e73; /* 次要文本 - Apple 灰 */
+
+  --color-divider: #e5e5ea; /* 分割线 */
+  --color-border: #d1d1d6; /* 边框 */
+
+  --color-button-hover: rgba(0, 0, 0, 0.05); /* 按钮悬停 */
+  --color-button-active: rgba(0, 0, 0, 0.1); /* 按钮激活 */
+
+  /* 交易相关颜色 */
+  --color-positive: #34c759; /* 上涨绿 - Apple 系统绿 */
+  --color-negative: #ff3b30; /* 下跌红 - Apple 系统红 */
+
+  /* 状态颜色 */
+  --color-warning: #ff9500; /* 警告 - Apple 系统橙 */
+  --color-success: #30d158; /* 成功 - Apple 系统绿 */
+  --color-error: #ff453a; /* 错误 - Apple 系统红 */
+
+  /* 投影 */
+  --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0px 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+[data-theme="dark"] {
+  /* Dark Theme - 基于 Apple Dark Mode & Material 3 Dark */
+  --color-primary: #0a84ff; /* 主题色保持不变 */
+  --color-primary-hover: #0071e3; /* 主题色悬停 */
+  --color-secondary: #98989d; /* 次要文本 */
+
+  --color-background: #000000; /* 页面背景 - 纯黑 */
+  --color-header-background: #1c1c1e; /* 头部背景 - Apple 暗色 */
+  --color-card-background: #2c2c2e; /* 卡片背景 */
+
+  --color-text: #ffffff; /* 主要文本 - 纯白 */
+  --color-text-secondary: #98989d; /* 次要文本 */
+
+  --color-divider: #38383a; /* 分割线 */
+  --color-border: #48484a; /* 边框 */
+
+  --color-button-hover: rgba(255, 255, 255, 0.05); /* 按钮悬停 */
+  --color-button-active: rgba(255, 255, 255, 0.1); /* 按钮激活 */
+
+  /* 交易相关颜色 */
+  --color-positive: #32d74b; /* 上涨绿 - 暗色模式 */
+  --color-negative: #ff453a; /* 下跌红 - 暗色模式 */
+
+  /* 状态颜色 */
+  --color-warning: #ff9f0a; /* 警告 */
+  --color-success: #30d158; /* 成功 */
+  --color-error: #ff453a; /* 错误 */
+
+  /* 投影 - 暗色模式下更强 */
+  --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 全局样式 */
+body {
+  user-select: none;
+  @apply bg-background text-text antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-divider rounded-full;
+}
+
+/* 动画 */
+.dropdown-content {
+  animation: slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* 平滑滚动 */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* 自定义滚动条 */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--color-divider);
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-border);
+  }
+
+  .stroke-1 {
+    stroke-width: 1.5px;
+  }
+
+  .stroke-\[1\.75\] {
+    stroke-width: 1.75px;
+  }
+}
+
+/* 添加过渡动画 */
+.page-transition {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 添加悬停效果 */
+.hover-scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* 添加到现有的 CSS 中 */
+.dark [stroke="currentColor"] {
+  stroke: #fff;
+}
+
+[stroke="currentColor"] {
+  stroke: #000;
 }

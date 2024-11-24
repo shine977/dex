@@ -1,0 +1,28 @@
+common:
+  language: 中文
+  connect_wallet: 连接钱包
+  disconnect: 断开连接
+  copy_address: 复制地址
+  theme:
+    system: 跟随系统
+    light: 浅色
+    dark: 深色
+nav:
+  all_chains: 全部链
+  price: 价格
+  change: 涨跌幅
+  search: 搜索
+  market: 市场
+  favorite: 收藏
+  settings: 设置
+
+chains:
+  solana: 索拉纳
+  ethereum: 以太坊
+  bsc: 币安智能链
+  base: Base
+
+actions:
+  copy_success: 复制成功
+  connect_success: 连接成功
+  disconnect_success: 已断开连接
